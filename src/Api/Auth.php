@@ -4,7 +4,7 @@ namespace Booni3\RedstagWms\Api;
 
 class Auth extends ApiClient
 {
-    public function getBearer(): string
+    public function bearer(): string
     {
         $response = $this->client->post('', [
             'json' => [

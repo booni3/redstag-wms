@@ -38,9 +38,9 @@ class RedstagWms
         return new Auth($this->client, $this->config);
     }
 
-    public function login($bearer = null): self
+    public function login(string $bearer = null): self
     {
-        $this->bearer = $bearer ?? $this->auth()->getBearer();
+        $this->bearer = $bearer ?? $this->auth()->bearer();
 
         return $this;
     }
