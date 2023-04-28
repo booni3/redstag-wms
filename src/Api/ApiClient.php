@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Booni3\RedstagWms\Api;
 
 use GuzzleHttp\Client;
@@ -33,9 +32,9 @@ class ApiClient
                 "params" => [
                     $this->bearer,
                     $method,
-                    $body
-                ]
-            ]
+                    $body,
+                ],
+            ],
         ]);
 
         return $this->parse($response);
@@ -49,11 +48,10 @@ class ApiClient
             throw new BadResponseException((string)$response->getBody());
         }
 
-        if(isset($array['id']) && $array['id'] != $this->config->unique_id){
+        if(isset($array['id']) && $array['id'] != $this->config->unique_id) {
             throw new \Exception('Unique ID mismatch');
         }
 
         return $array['result'];
     }
-
 }

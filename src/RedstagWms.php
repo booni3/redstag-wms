@@ -29,7 +29,7 @@ class RedstagWms
     {
         return new GuzzleClient([
             'base_uri' => $this->config->url,
-            'timeout' => $this->config->timeout
+            'timeout' => $this->config->timeout,
         ]);
     }
 

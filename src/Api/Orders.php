@@ -8,7 +8,7 @@ class Orders extends ApiClient
     {
         return $this->post('order.info', [
             $orderId,
-            $options
+            $options,
         ]);
     }
 }

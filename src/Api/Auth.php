@@ -13,9 +13,9 @@ class Auth extends ApiClient
                 "method" => "login",
                 "params" => [
                     $this->config->username,
-                    $this->config->password
-                ]
-            ]
+                    $this->config->password,
+                ],
+            ],
         ]);
 
         $array = json_decode($response->getBody(), true);
