@@ -69,7 +69,7 @@ class ShippingMethods
             'cheapest_ON_TIME' => 'Cheapest shipping method to arrive on-time. This requires valid “desired_delivery_date” as well.',
 
             'external_ltl' => 'LTL',
-            'external_ltl_thirdparty' => 'LTL - Third Party'
+            'external_ltl_thirdparty' => 'LTL - Third Party',
         ];
     }
 
