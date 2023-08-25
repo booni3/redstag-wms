@@ -4,7 +4,9 @@ namespace Booni3\RedstagWms;
 
 use Booni3\RedstagWms\Api\Auth;
 use Booni3\RedstagWms\Api\Config;
-use Booni3\RedstagWms\Api\Orders;
+use Booni3\RedstagWms\Api\Inventory;
+use Booni3\RedstagWms\Api\Order;
+use Booni3\RedstagWms\Api\Product;
 use GuzzleHttp\Client as GuzzleClient;
 
 class RedstagWms
@@ -45,8 +47,18 @@ class RedstagWms
         return $this;
     }
 
-    public function orders(): Orders
+    public function products(): Product
     {
-        return new Orders($this->client, $this->config, $this->bearer);
+        return new Product($this->client, $this->config, $this->bearer);
+    }
+
+    public function orders(): Order
+    {
+        return new Order($this->client, $this->config, $this->bearer);
+    }
+
+    public function inventory(): Inventory
+    {
+        return new Inventory($this->client, $this->config, $this->bearer);
     }
 }

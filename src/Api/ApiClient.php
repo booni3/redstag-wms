@@ -2,6 +2,7 @@
 
 namespace Booni3\RedstagWms\Api;
 
+use Booni3\RedstagWms\Exceptions\RedstagErrorException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Psr7\Response;
@@ -45,13 +46,17 @@ class ApiClient
         $array = json_decode((string) $response->getBody(), true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new BadResponseException((string)$response->getBody());
+            throw new BadResponseException((string) $response->getBody(), null, $response);
         }
 
         if(isset($array['id']) && $array['id'] != $this->config->unique_id) {
             throw new \Exception('Unique ID mismatch');
         }
 
-        return $array['result'];
+        if(isset($array['error'])){
+            throw new RedstagErrorException(json_encode($array['error']));
+        }
+
+        return $array['result'] ?? throw new RedstagErrorException('Response did not contain a valid result: '.json_encode($array));
     }
 }
