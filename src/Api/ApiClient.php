@@ -53,7 +53,7 @@ class ApiClient
             throw new \Exception('Unique ID mismatch');
         }
 
-        if(isset($array['error'])){
+        if(isset($array['error'])) {
             throw new RedstagErrorException(json_encode($array['error']));
         }
 

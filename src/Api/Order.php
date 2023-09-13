@@ -52,9 +52,9 @@ class Order extends ApiClient
     {
         return $this->post('order.create', [
             $storeCode,
-            array_map(fn($item) => $item->toArray(), $items),
+            array_map(fn ($item) => $item->toArray(), $items),
             $address->toArray(),
-            $info->toArray()
+            $info->toArray(),
         ]);
     }
 

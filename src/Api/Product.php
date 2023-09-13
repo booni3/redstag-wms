@@ -4,7 +4,6 @@ namespace Booni3\RedstagWms\Api;
 
 class Product extends ApiClient
 {
-
     /**
      * @param array|null $filters https://docs.shipstream.io/doc/search-filters.html
      * @param array|null $options https://docs.shipstream.io/doc/search-options.html
@@ -16,7 +15,7 @@ class Product extends ApiClient
     {
         return $this->post('product.search', [
             $filters,
-            $options
+            $options,
         ]);
     }
 }
