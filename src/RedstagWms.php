@@ -73,7 +73,4 @@ class RedstagWms
     {
         return new Package($this->client, $this->config, $this->bearer);
     }
-
-
-
 }

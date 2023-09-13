@@ -4,7 +4,6 @@ namespace Booni3\RedstagWms\Api;
 
 class Package extends ApiClient
 {
-
     /**
      * @param null|array $filters https://docs.shipstream.io/doc/search-filters.html
      * @param null|array $options https://docs.shipstream.io/doc/search-options.html
